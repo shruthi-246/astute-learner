@@ -14,6 +14,18 @@ import { Route as AppRouteImport } from './routes/app'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as AppAiInsightsRouteImport } from './routes/app.ai-insights'
+import { Route as AppAssignmentsRouteImport } from './routes/app.assignments'
+import { Route as AppAttendanceRouteImport } from './routes/app.attendance'
+import { Route as AppClassesRouteImport } from './routes/app.classes'
+import { Route as AppCoursesRouteImport } from './routes/app.courses'
+import { Route as AppDashboardRouteImport } from './routes/app.dashboard'
+import { Route as AppExamsRouteImport } from './routes/app.exams'
+import { Route as AppProfileRouteImport } from './routes/app.profile'
+import { Route as AppRecommendationsRouteImport } from './routes/app.recommendations'
+import { Route as AppReportsRouteImport } from './routes/app.reports'
+import { Route as AppStudentsRouteImport } from './routes/app.students'
+import { Route as AppTeachersRouteImport } from './routes/app.teachers'
 import { Route as CoursesCourseIdRouteImport } from './routes/courses.$courseId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -41,6 +53,66 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppAiInsightsRoute = AppAiInsightsRouteImport.update({
+  id: '/ai-insights',
+  path: '/ai-insights',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAssignmentsRoute = AppAssignmentsRouteImport.update({
+  id: '/assignments',
+  path: '/assignments',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAttendanceRoute = AppAttendanceRouteImport.update({
+  id: '/attendance',
+  path: '/attendance',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppClassesRoute = AppClassesRouteImport.update({
+  id: '/classes',
+  path: '/classes',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCoursesRoute = AppCoursesRouteImport.update({
+  id: '/courses',
+  path: '/courses',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDashboardRoute = AppDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppExamsRoute = AppExamsRouteImport.update({
+  id: '/exams',
+  path: '/exams',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProfileRoute = AppProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppRecommendationsRoute = AppRecommendationsRouteImport.update({
+  id: '/recommendations',
+  path: '/recommendations',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppReportsRoute = AppReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppStudentsRoute = AppStudentsRouteImport.update({
+  id: '/students',
+  path: '/students',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTeachersRoute = AppTeachersRouteImport.update({
+  id: '/teachers',
+  path: '/teachers',
+  getParentRoute: () => AppRoute,
+} as any)
 const CoursesCourseIdRoute = CoursesCourseIdRouteImport.update({
   id: '/$courseId',
   path: '/$courseId',
@@ -49,35 +121,106 @@ const CoursesCourseIdRoute = CoursesCourseIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/app': typeof AppRoute
+  '/app': typeof AppRouteWithChildren
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
   '/login': typeof LoginRoute
+  '/app/ai-insights': typeof AppAiInsightsRoute
+  '/app/assignments': typeof AppAssignmentsRoute
+  '/app/attendance': typeof AppAttendanceRoute
+  '/app/classes': typeof AppClassesRoute
+  '/app/courses': typeof AppCoursesRoute
+  '/app/dashboard': typeof AppDashboardRoute
+  '/app/exams': typeof AppExamsRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/recommendations': typeof AppRecommendationsRoute
+  '/app/reports': typeof AppReportsRoute
+  '/app/students': typeof AppStudentsRoute
+  '/app/teachers': typeof AppTeachersRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/app': typeof AppRoute
+  '/app': typeof AppRouteWithChildren
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
   '/login': typeof LoginRoute
+  '/app/ai-insights': typeof AppAiInsightsRoute
+  '/app/assignments': typeof AppAssignmentsRoute
+  '/app/attendance': typeof AppAttendanceRoute
+  '/app/classes': typeof AppClassesRoute
+  '/app/courses': typeof AppCoursesRoute
+  '/app/dashboard': typeof AppDashboardRoute
+  '/app/exams': typeof AppExamsRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/recommendations': typeof AppRecommendationsRoute
+  '/app/reports': typeof AppReportsRoute
+  '/app/students': typeof AppStudentsRoute
+  '/app/teachers': typeof AppTeachersRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/app': typeof AppRoute
+  '/app': typeof AppRouteWithChildren
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
   '/login': typeof LoginRoute
+  '/app/ai-insights': typeof AppAiInsightsRoute
+  '/app/assignments': typeof AppAssignmentsRoute
+  '/app/attendance': typeof AppAttendanceRoute
+  '/app/classes': typeof AppClassesRoute
+  '/app/courses': typeof AppCoursesRoute
+  '/app/dashboard': typeof AppDashboardRoute
+  '/app/exams': typeof AppExamsRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/recommendations': typeof AppRecommendationsRoute
+  '/app/reports': typeof AppReportsRoute
+  '/app/students': typeof AppStudentsRoute
+  '/app/teachers': typeof AppTeachersRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/app' | '/contact' | '/courses' | '/login' | '/courses/$courseId'
+    | '/'
+    | '/app'
+    | '/contact'
+    | '/courses'
+    | '/login'
+    | '/app/ai-insights'
+    | '/app/assignments'
+    | '/app/attendance'
+    | '/app/classes'
+    | '/app/courses'
+    | '/app/dashboard'
+    | '/app/exams'
+    | '/app/profile'
+    | '/app/recommendations'
+    | '/app/reports'
+    | '/app/students'
+    | '/app/teachers'
+    | '/courses/$courseId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/app' | '/contact' | '/courses' | '/login' | '/courses/$courseId'
+  to:
+    | '/'
+    | '/app'
+    | '/contact'
+    | '/courses'
+    | '/login'
+    | '/app/ai-insights'
+    | '/app/assignments'
+    | '/app/attendance'
+    | '/app/classes'
+    | '/app/courses'
+    | '/app/dashboard'
+    | '/app/exams'
+    | '/app/profile'
+    | '/app/recommendations'
+    | '/app/reports'
+    | '/app/students'
+    | '/app/teachers'
+    | '/courses/$courseId'
   id:
     | '__root__'
     | '/'
@@ -85,12 +228,24 @@ export interface FileRouteTypes {
     | '/contact'
     | '/courses'
     | '/login'
+    | '/app/ai-insights'
+    | '/app/assignments'
+    | '/app/attendance'
+    | '/app/classes'
+    | '/app/courses'
+    | '/app/dashboard'
+    | '/app/exams'
+    | '/app/profile'
+    | '/app/recommendations'
+    | '/app/reports'
+    | '/app/students'
+    | '/app/teachers'
     | '/courses/$courseId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AppRoute: typeof AppRoute
+  AppRoute: typeof AppRouteWithChildren
   ContactRoute: typeof ContactRoute
   CoursesRoute: typeof CoursesRouteWithChildren
   LoginRoute: typeof LoginRoute
@@ -133,6 +288,90 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app/ai-insights': {
+      id: '/app/ai-insights'
+      path: '/ai-insights'
+      fullPath: '/app/ai-insights'
+      preLoaderRoute: typeof AppAiInsightsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/assignments': {
+      id: '/app/assignments'
+      path: '/assignments'
+      fullPath: '/app/assignments'
+      preLoaderRoute: typeof AppAssignmentsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/attendance': {
+      id: '/app/attendance'
+      path: '/attendance'
+      fullPath: '/app/attendance'
+      preLoaderRoute: typeof AppAttendanceRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/classes': {
+      id: '/app/classes'
+      path: '/classes'
+      fullPath: '/app/classes'
+      preLoaderRoute: typeof AppClassesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/courses': {
+      id: '/app/courses'
+      path: '/courses'
+      fullPath: '/app/courses'
+      preLoaderRoute: typeof AppCoursesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/dashboard': {
+      id: '/app/dashboard'
+      path: '/dashboard'
+      fullPath: '/app/dashboard'
+      preLoaderRoute: typeof AppDashboardRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/exams': {
+      id: '/app/exams'
+      path: '/exams'
+      fullPath: '/app/exams'
+      preLoaderRoute: typeof AppExamsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/profile': {
+      id: '/app/profile'
+      path: '/profile'
+      fullPath: '/app/profile'
+      preLoaderRoute: typeof AppProfileRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/recommendations': {
+      id: '/app/recommendations'
+      path: '/recommendations'
+      fullPath: '/app/recommendations'
+      preLoaderRoute: typeof AppRecommendationsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/reports': {
+      id: '/app/reports'
+      path: '/reports'
+      fullPath: '/app/reports'
+      preLoaderRoute: typeof AppReportsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/students': {
+      id: '/app/students'
+      path: '/students'
+      fullPath: '/app/students'
+      preLoaderRoute: typeof AppStudentsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/teachers': {
+      id: '/app/teachers'
+      path: '/teachers'
+      fullPath: '/app/teachers'
+      preLoaderRoute: typeof AppTeachersRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/courses/$courseId': {
       id: '/courses/$courseId'
       path: '/$courseId'
@@ -142,6 +381,38 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface AppRouteChildren {
+  AppAiInsightsRoute: typeof AppAiInsightsRoute
+  AppAssignmentsRoute: typeof AppAssignmentsRoute
+  AppAttendanceRoute: typeof AppAttendanceRoute
+  AppClassesRoute: typeof AppClassesRoute
+  AppCoursesRoute: typeof AppCoursesRoute
+  AppDashboardRoute: typeof AppDashboardRoute
+  AppExamsRoute: typeof AppExamsRoute
+  AppProfileRoute: typeof AppProfileRoute
+  AppRecommendationsRoute: typeof AppRecommendationsRoute
+  AppReportsRoute: typeof AppReportsRoute
+  AppStudentsRoute: typeof AppStudentsRoute
+  AppTeachersRoute: typeof AppTeachersRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppAiInsightsRoute: AppAiInsightsRoute,
+  AppAssignmentsRoute: AppAssignmentsRoute,
+  AppAttendanceRoute: AppAttendanceRoute,
+  AppClassesRoute: AppClassesRoute,
+  AppCoursesRoute: AppCoursesRoute,
+  AppDashboardRoute: AppDashboardRoute,
+  AppExamsRoute: AppExamsRoute,
+  AppProfileRoute: AppProfileRoute,
+  AppRecommendationsRoute: AppRecommendationsRoute,
+  AppReportsRoute: AppReportsRoute,
+  AppStudentsRoute: AppStudentsRoute,
+  AppTeachersRoute: AppTeachersRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
 
 interface CoursesRouteChildren {
   CoursesCourseIdRoute: typeof CoursesCourseIdRoute
@@ -156,7 +427,7 @@ const CoursesRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AppRoute: AppRoute,
+  AppRoute: AppRouteWithChildren,
   ContactRoute: ContactRoute,
   CoursesRoute: CoursesRouteWithChildren,
   LoginRoute: LoginRoute,
